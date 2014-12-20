@@ -1,11 +1,14 @@
-var app = angular.module('TodoApp',['ngRoute']);
+var app = angular.module('TodoApp',['ngRoute','MyServices']);
 
     app.value('baseUrl','http://localhost/BugTrackerApp/public/');
 
     app.config(function($routeProvider){
         $routeProvider
             .when('/',{title:'Welcome to todo app',controller:'HomeCtrl',templateUrl:'views/home/index.html'})
-            .when('/my-todos',{title:'My Todo',controller:"Todoctrl",templateUrl:"views/todos/index.html"})
+            .when('/my-todos',{title:'My Todo',controller:"TodoCtrl",templateUrl:"views/todos/index.html"})
+            .when('/add-todo',{title:'Add Todo',controller:"AddTodoCtrl",templateUrl:"views/todos/add-todo.html"})
+
+
 
     });
 
@@ -15,3 +18,4 @@ var app = angular.module('TodoApp',['ngRoute']);
             $rootScope.title = current.$$route.title;
         });
     }]);
+

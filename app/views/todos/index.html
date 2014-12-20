@@ -1,0 +1,40 @@
+<div class="col-lg-12">
+    <form action="">
+    <div class="row-fluid">
+        <div class="col-md-6 col-lg-6">
+            <a href="#/add-todo" class="btn-primary btn">Add New</a>
+            <a ng-click="clearAll()">Clear all</a>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+            <input type="text" data-ng-model="searchText" class="form-control" placeholder="Search todo"/>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sr.</th>
+                        <th>title</th>
+                        <th>date</th>
+                        <th>group</th>
+                        <th>priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="todo in filtered = (todos|filter:searchText)">
+                    <td data-ng-bind="todo.id"></td>
+                    <td data-ng-bind="todo.task"></td>
+                    <td data-ng-bind="todo.date"></td>
+                    <td data-ng-bind="todo.label_id"></td>
+                    <td data-ng-bind="todo.priority_id"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</form>
+</div>

@@ -1,0 +1,41 @@
+<div class="col-lg-2" xmlns="http://www.w3.org/1999/html">
+    <a href="/#my-todos" class="btn btn-primary">List todos</a>
+</div>
+<div class="col-lg-6">
+
+    <form name="form" novalidate class="css-form" method="post">
+
+        <div class="form-group">
+            <label class="control-label" for=""> Task</label>
+            <textarea name="task" data-ng-model="todo.task" class="form-control" placeholder="add task" required/></textarea>
+            <div ng-show="form.$submitted || form.task.$touched">
+                <div ng-show="form.task.$error.required" class="has-error">Enter task</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Group</label>
+            <select class="form-control" name="label" data-ng-model="todo.label_id" ng-options="label.name for label in labels">
+                <option value="">-- choose label --</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="">Date</label>
+            <input type="text" data-ng-model="todo.date" name="date" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="">Priority</label>
+            <select class="form-control" name="priority" data-ng-model="todo.priority_id" ng-options="priority.name for priority in priorities">
+                <option value="">-- choose priority --</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" ng-click="submit()" value="Add New" class="btn-success btn"/>
+            <input type="button" ng-click="reset(form)" value="Reset" class="btn btn-default" />
+        </div>
+    </form>
+</div>
