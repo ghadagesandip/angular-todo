@@ -1,7 +1,9 @@
 
 app.controller('TodoCtrl',function($scope,Todos){
 
-    $scope.todos = Todos.getTodos();
+    var todosInStore = Todos.getTodos();
+
+    $scope.todos = todosInStore || [];
 
     $scope.clearAll = function(){
 

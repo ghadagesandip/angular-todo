@@ -12,14 +12,13 @@ var MyServices = angular.module('MyServices',['LocalStorageModule'])
         }
 
         this.getTodos = function(){
-            //console.log(this.getTodoLength())
+
             return this.todos = localStorageService.get('todos');
         }
 
-        this.addSaveTodo = function(todo){
-
-            return localStorageService.set('todos',val);
-
+        this.addTodo = function(todo){
+            $scope.todos.push(todo);
+            return true;
         }
 
 
