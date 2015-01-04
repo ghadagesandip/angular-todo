@@ -1,19 +1,20 @@
 var MyServices = angular.module('MyServices',['LocalStorageModule'])
 
+    .value('apibaseUrl','http://localhost/BugTrackerApp/public/')
+
     .config(function(localStorageServiceProvider){
         localStorageServiceProvider
             .setPrefix('TodoApp');
     })
 
-    .service('Todos',function(localStorageService){
+    .service('Todos',function(localStorageService,$http,apibaseUrl){
 
         this.getTodoLength = function(){
-            return localStorageService.get('todos');
+
         }
 
         this.getTodos = function(){
-
-            return this.todos = localStorageService.get('todos');
+            return $http.get(apibaseUrl+'getTodos/1')
         }
 
         this.addTodo = function(todo){
